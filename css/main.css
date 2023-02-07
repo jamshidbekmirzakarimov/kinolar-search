@@ -1,7 +1,7 @@
 :root {
-    /* --header-bg-color: #fff; */
-    /* --main-bg-color: #fff; */
-    /* main-text-color: #fff; */
+  /* --header-bg-color: #fff; */
+  /* --main-bg-color: #fff; */
+  /* main-text-color: #fff; */
 }
 
 /* GENERAL */
@@ -23,7 +23,7 @@ body {
   height: 100%;
   margin: 0;
   font-family: "Arial", sans-serif;
-  background-color: #fff;
+  background-color: rgb(25, 51, 51);
 }
 
 img {
@@ -60,4 +60,50 @@ ul,ol,li{
 
 a{
   text-decoration: none;
+}
+
+img{
+  width: 100%;
+  height: 350px;
+}
+
+.movies-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.movies-item{
+  border-radius: 5px;
+  width: 250px;
+  min-height: 400px;
+  background-color: darkcyan;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.movies-box{
+  padding: 10px;
+}
+
+.movies-title{
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.date-box{
+  display: flex;
+  text-decoration: underline;
+  margin-right: auto;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.genres-box{
+  display: inline-block;
+  border: 2px solid darkslategray;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
