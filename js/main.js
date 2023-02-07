@@ -51,4 +51,17 @@ elMoviesList.addEventListener("click", function (evt) {
   }
 });
 
-renderMovies(films)
+elSearchForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+
+  const searchQuery = new RegExp(elSearchFormInput.value, "gi");
+  const foundMovies = films.filter((film) => film.title.match(searchQuery));
+
+  if (foundMovies.length > 0) {
+    renderMovies(foundMovies);
+  } else {
+    elMoviesList.innerHTML = "<div class'text-white diplay-2'>Not found movie</div>"
+  }
+});
+
+renderMovies(films);
