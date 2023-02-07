@@ -22,7 +22,7 @@ function renderMovies(films) {
     elCloneMovie.querySelector(".js-movies-title").textContent = film.title;
     elCloneMovie.querySelector(".js-date").textContent = film.release_date;
     elCloneMovie.querySelector(".js-genres").textContent = film.genres.join(", ");
-    elCloneMovie.querySelector(".js-movies-temp-btn").dataset.id = film.release_date;
+    elCloneMovie.querySelector(".js-movies-temp-btn").dataset.id = film.id;
     
     newMoviesFragment.appendChild(elCloneMovie);
   });
@@ -38,5 +38,17 @@ function renderModalInfo(findMovie) {
   elModalAboutTitle = findMovie.overview;
   elModalGenes = findMovie.genres;
 }
+
+elMoviesList.addEventListener("click", function (evt) {
+  const elmentTarget = evt.target;
+  // console.log(elmentTarget);
+  const btnId = elmentTarget.dataset.id;
+  // console.log(btnId);
+  if (elmentTarget.matches(".js-movies-temp-btn")) {
+    const foundMovie = films.find((film) => films.id == btnId);
+    renderModalInfo(foundMovie);
+    console.log(foundMovie);
+  }
+});
 
 renderMovies(films)
