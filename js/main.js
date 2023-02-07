@@ -5,18 +5,38 @@ const elSearchForm = document.querySelector(".js-search-form");
 const elSearchFormInput = elSearchForm.querySelector(".js-search-form-input");
 
 
+
 //MODAL
 
 const elModalImg = document.querySelector(".js-movies-modal-img");
-const elModalID = document.querySelector(".js-id-modal");
 const elModalTitle = document.querySelector(".js-movies-modal-title");
 const elModalDate = document.querySelector(".js-modal-date");
 const elModalAboutTitle = document.querySelector(".about-modal-title");
-const elModal = document.querySelector(".js-modal-genres");
+const elModalGenes = document.querySelector(".js-modal-genres");
 
-function renderModal(films) {
+function renderMovies(films) {
+  elMoviesList.innerHTML = null
   films.forEach((film) => {
     const elCloneMovie = elMoviesTemplate.cloneNode(true);
-    elCloneMovie.querySelector(".js")
-  })
+    elCloneMovie.querySelector(".js-movies-img").src = film.poster;
+    elCloneMovie.querySelector(".js-movies-title").textContent = film.title;
+    elCloneMovie.querySelector(".js-date").textContent = film.release_date;
+    elCloneMovie.querySelector(".js-genres").textContent = film.genres.join(", ");
+    elCloneMovie.querySelector(".js-movies-temp-btn").dataset.id = film.release_date;
+    
+    newMoviesFragment.appendChild(elCloneMovie);
+  });
+  
+  elMoviesList.appendChild(newMoviesFragment);
+  
 }
+
+function renderModalInfo(findMovie) {
+  elModalImg = findMovie.poster;
+  elModalTitle = findMovie.title;
+  elModalDate = findMovie.release_date;
+  elModalAboutTitle = findMovie.overview;
+  elModalGenes = findMovie.genres;
+}
+
+renderMovies(films)
